@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Add member</h1>
+
+    <form action="add_record/" method="post">
+        {% csrf_token %}
+        First Name:<br>
+        <input name="firstname">
+        <br><br>
+        Last Name:<br>
+        <input name="lastname">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

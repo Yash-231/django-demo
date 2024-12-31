@@ -1,0 +1,53 @@
+{# {% extends "myfirstapp.html" %} #}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+{% include "header.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+
+{% comment "used with extends templatetag" %}
+  {% block heading %}
+    <h2>John Doe</h2>
+    <p>Explorer of life</p>
+  {% endblock %}
+{% endcomment %}
+
+<!-- This is a comment -->
+
+{% spaceless %}
+{% for x, y in mycar.items %}
+  <p>The {{ x }} is {{ y }}.</p>
+{% endfor %}
+{% endspaceless %}
+
+<h1>{% now "l, d F, Y P e" %}</h1>
+
+<p>{% templatetag openblock %}</p>
+
+{% filter upper %}
+  <h1>Hello everyone, how are you?</h1>
+{% endfilter %}
+
+{% verbatim mycode %}
+  {% for x in fruits %}
+    {% verbatim %}
+       <h1>{{ x }}</h1>
+    {% endverbatim %}
+  {% endfor %}
+{% endverbatim mycode %}
+
+{% with myvar=fruits|length %}
+  {% for x in fruits %}
+     <p>{{ x }} is one of {{ myvar }} fruits.</p>
+  {% endfor %}
+{% endwith %}
+
+<button onclick="alert('{{ name|addslashes }}')">Click me!</button>
+
+<h1>{{ 5842159731.2659745|floatformat:2 }}</h1>
+
+<h1>{{ fruits|slice:"-3:-2" }}</h1>
+
+</body>
+</html>   
